@@ -9,12 +9,17 @@
 * Hint: https://www.typescriptlang.org/docs/handbook/basic-types.html
 */
 
-const age: string = 80;
-const firstName: number = 'Przemek';
-const todos: Map = [
-    { todo: 'Learn TypeScript' },
-    { todo: 'Subscribe Przeprogramowani', priority: 1},
-    { todo: 'Sign up for newsletter', priority: 1}
+class Todo {
+    constructor(private readonly todo: string, private readonly priority?: number) {
+    }
+}
+
+const age: number = 80;
+const firstName: string = 'Przemek';
+const todos: Todo[] = [
+    new Todo('Learn TypeScript'),
+    new Todo('Subscribe Przeprogramowani', 1),
+    new Todo('Sign up for newsletter', 1)
 ]
 
 /* Do not modify tests */
