@@ -9,15 +9,19 @@
 * Hint: https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
 */
 
-class Monkey {
-    eatBanana() {
-        return 'Eating banana!'
+interface EatingAnimal {
+    eatSomething(): string
+}
+
+class Monkey implements EatingAnimal {
+    eatSomething(): string {
+        return 'Eating banana!';
     }
 }
 
-class Snake {
-    eatMouse() {
-        return 'Eating mouse!'
+class Snake implements EatingAnimal {
+    eatSomething(): string {
+        return 'Eating mouse!';
     }
 }
 
@@ -27,8 +31,7 @@ const snake = new Snake()
 type AnimalInZoo = Monkey | Snake
 
 function eatSomething(animal: AnimalInZoo) {
-    animal.eatBanana();
-    animal.eatMouse();
+    return animal.eatSomething();
 }
 
 /* Do not modify tests */
