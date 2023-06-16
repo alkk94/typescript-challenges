@@ -21,17 +21,26 @@ interface Teacher {
     teach(): string;
 }
 
-type SkilledPerson = Singer;
+interface SkilledPerson extends Singer, Dancer, Teacher {}
 
-const johnDoe: SkilledPerson = {}
+const johnDoe: SkilledPerson = {
+    sing(): string {
+        return 'I can sing!';
+    },
+    dance(): string {
+        return 'I can dance!';
+    },
+    teach(): string {
+        return 'I can teach!';
+    }
+}
 
 function buildResume(person: SkilledPerson) {
-    const skills = [
+    return [
         person.dance(),
         person.sing(),
         person.teach()
-    ]
-    return skills;
+    ];
 }
 
 /* Do not modify tests */
